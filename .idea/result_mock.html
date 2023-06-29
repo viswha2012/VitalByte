@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <title>Result</title>
+    <link rel="stylesheet" href="..\static\style_result.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body onload="displayParagraph()">
+    <div class="top-bar"></div>
+    <div class="container">
+        <img class="logo" src="..\static\logod.jpg" >
+        <button type="submit" >Dashboard</button>
+        <div class="box" id="box1" data-aos="fade-up" data-aos-duration="1000">
+            <p class="heading">Result</p>
+                <div id="result">
+                    <h2 id="subheading"><i>Predicted Obesity Level:</i></h2><br>
+                    <h3> {{ name }},</h3><br>
+                    <p>The predicted obesity level based on the provided information is:</p><br>
+                    <h1>{{ predicted_label }}</h1>
+                </div>
+            </div>
+        </div>
+        <div class="box" id="box3" data-aos="fade-left" data-aos-duration="1000">
+            <p class="heading">Recommendations</p>
+                <div class="prediction-paragraph" id="1">
+                    <p>Level 7: You're at a very high risk for obesity. It's crucial to address this risk as it can lead to other health issues like diabetes, heart disease, and certain cancers. Seek professional medical advice. Work closely with healthcare providers, dietitians, and potentially therapists or support groups to develop a comprehensive plan that addresses diet, physical activity, behavior changes, and possibly medication or surgery.<br><br>
+                        ● Engage with a healthcare provider to conduct a thorough health assessment and develop a detailed action plan.<br>
+                        ● Collaborate with dietitians or nutritionists for personalized meal plans, and consider seeing a therapist for emotional or behavioral support.<br>
+                        ● Join a support group for people struggling with similar issues. It can help to share your experiences and learn from others.<br>
+                        ● Consider medication or surgery under professional guidance if lifestyle modifications alone are insufficient.<br><br>
+                        Remember, every individual is different, and your needs may vary. Always consult a healthcare professional for personalized advice.<br>
+                        </p>
+            </div>
+        </div>
+        <input type="hidden" id="predictedValue" value="{{ predicted_label }}">
+    </div>
+    <script>
+        function auth(){
+            window.location.href = "mock_up_dashboard.html";
+        }
+    </script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        
+    </script>
+</body>
+</html>
