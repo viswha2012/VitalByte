@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Survey Form</title>
+    <link rel="stylesheet" href="..\static\style_survey.css">
+</head>
+<body>
+    <div class="heading">
+        <div class="logo-conatiner"><img class="logo" src="..\static\logo.png" alt="Logo"></div>
+        <h1 id="head">Survey Form</h1>
+        <h2 id="subheading"><i>Kindly fill out the survey form</i></h2>
+    </div>
+    <form method="post" action="/survey">
+        <div id="content1">
+            <label>1. Name:</label> <br><br>
+            <input type="text" name="name" placeholder="Enter your name" required class="box"> <br><br>
+            <label>2. Age:</label> <br><br>
+            <input type="number" name="age" placeholder="Enter your age" required class="box" min="6"> <br><br>
+        </div>
+        <br>
+        <label id="head1">3. Gender:</label> <br><br>
+        <input type="radio" name="gender" value="male" required>&nbsp&nbsp&nbspMale <br><br>
+        <input type="radio" name="gender" value="female" required>&nbsp&nbsp&nbspFemale <br><br><br>
+        <div id="content2">
+            <label>4. Height:</label> <br><br>
+            <input type="number" name="height" placeholder="in meters" required min="1.2" max="3" step="0.01" class="box"> <br><br><br>
+            <label>5. Weight:</label> <br><br>
+            <input type="number" name="weight" placeholder="in kgs" required min="20" max="360" class="box" step="0.5"> <br><br>
+        </div>
+        <br>
+        <label id="head2">6. Do you have a family history of overweight/obesity?</label> <br><br>
+        <input type="radio" name="family" value="Yes" required>&nbsp&nbsp&nbspYes <br><br>
+        <input type="radio" name="family" value="No" required>&nbsp&nbsp&nbspNo <br><br>
+        <br>
+        <label id="head3">7. Do you frequently consume high caloric food?</label> <br><br>
+        <input type="radio" name="caloric_food" value="Yes" required>&nbsp&nbsp&nbspYes <br><br>
+        <input type="radio" name="caloric_food" value="No" required>&nbsp&nbsp&nbspNo <br><br><br>
+        <div id="content3">
+            <label>8. How much are your daily servings of vegetables?</label> <br><br>
+            <input type="number" name="vegetables" placeholder="Enter the number of vegetables" required class="box" min="0"> <br><br><br>
+            <label>9. What is your daily number of meals consumed?</label> <br><br>
+            <input type="number" name="number_meals" placeholder="Enter the number of meals" required class="box" min="0"> <br><br><br>
+            <label>10. How often do you consume food between meals?</label> <br><br>
+            <input type="number" name="food_between_meals" placeholder="Enter the number of food items" required class="box" min="0"> <br><br><br>
+        </div>
+        <br>
+        <label id="head4">11. Do you smoke?</label> <br><br>
+        <input type="radio" name="smoke" value="Yes" required>&nbsp&nbsp&nbspYes <br><br>
+        <input type="radio" name="smoke" value="No" required>&nbsp&nbsp&nbspNo <br><br>
+        <br>
+        <label id="head5">12. Do you monitor your calorie consumption?</label> <br><br>
+        <input type="radio" name="calories" value="Yes" required>&nbsp&nbsp&nbspYes <br><br>
+        <input type="radio" name="calories" value="No" required>&nbsp&nbsp&nbspNo <br><br><br>
+        <div id="content4">
+            <label>13. How many days per week do you participate in physical activity?</label> <br><br>
+            <input type="number" name="activity" placeholder="Enter the number of activities" required class="box" min="0"> <br><br><br>
+            <label>14. How many hours per day do you use technological devices?</label> <br><br>
+            <input type="number" name="technology" placeholder="Enter the usage of technology" required class="box" min="0"> <br><br><br>
+            <label>15. Alcohol consumption:</label> <br><br>
+            <input type="number" name="alcohol" placeholder="Enter the alcohol consumption" required class="box" min="0"> <br><br><br>
+            <label>16. What is your daily consumption of water in Liters?</label> <br><br>
+            <input type="number" name="water" placeholder="Enter the water intake" required class="box" min="0"> <br><br><br>
+        </div>
+        <div id="option1">
+            <label>17. Most frequent type of transportation used:</label> <br><br>
+            <select name="transportation" required>
+                <option value="" disabled selected>Select</option>
+                <option value="public">Public mode of transport</option>
+                <option value="walking">Walking</option>
+                <option value="motorbike">Motorbike</option>
+                <option value="automobile">Automobile</option>
+            </select> <br><br><br>
+        </div>
+        <button type="submit" id="submit-button">Submit</button>
+    </form>
+</body>
+</html>

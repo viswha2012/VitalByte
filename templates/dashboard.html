@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="..\static\style_dashboard.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <img class="logo" src="..\static\logod.jpg" >
+    <div class="top-bar"></div>
+    <div class="keys1" data-aos="fade-left" data-aos-duration="1000">
+        <img id="icon" src="../static/icon.png" alt="icon">
+        <h3 id="name">{{ name }}</h3><br>
+    </div>
+    <div class="keys2" data-aos="fade-left" data-aos-duration="1000">
+        <div class="graph">{% if predicted_label == "1" %}
+            <img src="../static/1.jpg" alt="Image 1">
+            {% elif predicted_label == "2" %}
+            <img src="../static/2.jpg" alt="Image 2">
+            {% elif predicted_label == "3" %}
+            <img src="../static/3.jpg" alt="Image 3">
+            {% elif predicted_label == "4" %}
+            <img src="../static/4.jpg" alt="Image 4">
+            {% elif predicted_label == "5" %}
+            <img src="../static/5.jpg" alt="Image 5">
+            {% elif predicted_label == "6" %}
+            <img src="../static/6.jpg" alt="Image 6">
+            {% elif predicted_label == "7" %}
+            <img src="../static/7.jpg" alt="Image 7">
+            {% endif %}
+            <h1>{{ predicted_label }}</h1>
+        </div>
+    </div>
+    <div class="dashboard" data-aos="fade-left" data-aos-duration="1000">
+        <div class="prediction-paragraph">{% if predicted_label == "1" %}
+            <p id="content">
+                ● Maintain a balanced diet rich in fruits, vegetables, whole grains, and lean proteins.<br>
+                ● Regularly engage in physical activity that you enjoy.<br>
+                ● Stay hydrated and ensure you're getting enough sleep.<br>
+                ● Regularly monitor your weight and body measurements to catch any changes early.<br><br>
+                </p>
+            {% elif predicted_label == "2" %}
+            <p id="content">
+                ● Increase vegetable intake, aiming for 5 servings per day.<br>
+                ● Keep an eye on caloric intake. Use a nutrition tracking app if needed.<br>
+                ● Incorporate additional physical activities into your routine.<br>
+                ● Consider implementing stress management techniques like meditation or yoga.<br><br>
+                </p>
+            {% elif predicted_label == "3" %}
+            <p id="content">
+                ● Limit snacking between meals. If you must snack, choose healthier options like fruit or nuts.<br>
+                ● Increase physical activity. Try to get at least 30 minutes of moderate exercise daily.<br>
+                ● Consider cutting back on alcohol and smoking.<br>
+                ● Make an effort to increase your water intake to stay hydrated.<br><br>
+                </p>
+            {% elif predicted_label == "4" %}
+            <p id="content">
+                ● Pay attention to portion sizes to avoid overeating.<br>
+                ● Consider limiting your intake of high-calorie and high-sugar foods.<br>
+                ● Break up long periods of screen time with short exercises.<br>
+                ● Begin monitoring your weight regularly, if not doing so already.<br><br>
+                </p>
+            {% elif predicted_label == "5" %}
+            <p id="content">
+                ● Commit to regular physical exercise, such as a daily jog, cycling, or a fitness class.<br>
+                ● Reach out to a dietitian to help you formulate a healthier meal plan.<br>
+                ● Reduce alcohol consumption and consider joining a support group if you're struggling to quit smoking.<br>
+                ● Implement a regular sleep schedule to ensure you're getting enough rest.<br><br>
+                </p>
+            {% elif predicted_label == "6" %}
+            <p id="content">
+                ● Prioritize regular, intense physical activity such as weightlifting, running, or high-intensity interval training.<br>
+                ● Drastically reduce your consumption of processed foods and sugars.<br>
+                ● Consult with a healthcare provider for a comprehensive health check and personalized plan.<br>
+                ● Seek professional support for issues such as smoking cessation or alcohol reduction.<br><br>
+                </p>
+            {% elif predicted_label == "7" %}
+            <p id="content">
+                ● Engage with a healthcare provider to conduct a thorough health assessment and develop a detailed action plan.<br>
+                ● Collaborate with dietitians or nutritionists for personalized meal plans, and consider seeing a therapist for emotional or behavioral support.<br>
+                ● Join a support group for people struggling with similar issues. It can help to share your experiences and learn from others.<br>
+                ● Consider medication or surgery under professional guidance if lifestyle modifications alone are insufficient.<br><br>
+                </p>
+            {% endif %}
+        </div>
+    </div>
+    <button id="surveyButton" class="b1" >Survey</button>
+    <button id="resultButton" class="b2" >Result</button>
+    <a href="{{ url_for('logout') }}">
+        <button class="b3" >Log Out</button>
+    </a>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        <script>
+        AOS.init();
+    </script>
+    <script>
+        document.getElementById('resultButton').addEventListener('click', function() {
+            window.location.href = '/result';
+        });
+    </script>
+    <script>
+        document.getElementById('surveyButton').addEventListener('click', function() {
+            window.location.href = '/survey';
+        });
+    </script>
+    <script>
+        document.getElementById('resultButton').addEventListener('click', function() {
+
+            var predictedLabel = "{{ predicted_label }}";
+            var name = "{{ name }}";
+    
+            var url = "/result?predicted_label=" + encodeURIComponent(predictedLabel) + "&name=" + encodeURIComponent(name);
+    
+            window.location.href = url;
+        });
+    </script>
+</body>
+</html>

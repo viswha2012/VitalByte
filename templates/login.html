@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="../static/style_login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+</head>
+<body>
+    
+    <div class="login">
+        <div class="form_box">
+            <div class="logo-conatiner"><img class="logo" src="..\static\logo.png" ></div>
+            <div class="button_box">
+                <div id="btn"></div>
+                <button type="button" class="toggle_btn" onclick="login(event)">Log In</button>
+                <button type="button" class="toggle_btn" onclick="register(event)">Register</button>
+            </div>
+            <form id="login_form" class="input_group" action="/login" method="post">
+                <input type="text" name="username" class="input_field" id="username" placeholder="User ID" required>
+                <input type="password" name="password" class="input_field" id="password" placeholder="Enter Password" required>
+                <div class="check_box">
+                    <input type="checkbox">
+                    <label>Remember Password</label>
+                </div>
+                <a href="{{ url_for('survey') }}">
+                    <button type="submit" class="submit_btn" id="login_btn" >Log In</button>
+                </a>
+            </form>
+            <form id="register_form" class="input_group" action="/register" method="post">
+                <input type="text" name="userid" class="input_field" placeholder="User ID" required>
+                <input type="password" name="pass" class="input_field" placeholder="Enter Password" required>
+                <input type="text" name="fullname" class="input_field" placeholder="Full Name" required>
+                <div class="check_box">
+                    <input type="checkbox">
+                    <label><a href="TC.html" target="_blank">I agree to the Terms and Conditions</a></label>
+                </div>
+                <button type="submit" class="submit_btn">Register</button>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        var x = document.getElementById("login_form");
+        var y = document.getElementById("register_form");
+        var z = document.getElementById("btn");
+
+        function register(event) {
+            event.preventDefault();
+            x.style.left = "-400px";
+            y.style.left = "50px";
+            z.style.left = "110px";
+        }
+
+        function login(event) {
+            x.style.left = "50px";
+            y.style.left = "450px";
+            z.style.left = "0px";
+        }
+
+        window.addEventListener('DOMContentLoaded', (event) => {
+            var url = window.location.href;
+            if (url.includes('register')) {
+                register();
+            } else {
+                login();
+            }
+        });
+    </script>
+    <button type="submit" class="submit_btn" id="login_btn">Log In</button>
+    
+</body>
+</html>

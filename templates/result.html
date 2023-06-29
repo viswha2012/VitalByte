@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <title>Result</title>
+    <link rel="stylesheet" href="..\static\style_result.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body onload="displayParagraph()">
+    <form action="/dashboard" method="GET">
+        <input type="hidden" name="name" value="{{ hidden_name }}">
+        <input type="hidden" name="predicted_label" value="{{ hidden_predicted_label }}">
+    </form>
+    <img class="logo" src="..\static\logod.jpg" >
+    <div class="top-bar"></div>
+    <div class="container">
+        <button id="dashboardButton">Dashboard</button>
+         <div class="box" id="box1" data-aos="fade-up" data-aos-duration="1000">
+            <p class="heading">Result</p>
+                <div id="result">
+                    <h2 id="subheading"><i>Predicted Obesity Level:</i></h2><br>
+                    <h3> {{ name }},</h3><br>
+                    <p>The predicted obesity level based on the provided information is:</p><br>
+                    <h1>{{ predicted_label }}</h1><br><br>
+                    <p>Scroll down for additional information</p>
+                </div>
+            </div>
+        </div>
+        <div class="box" id="box3" data-aos="fade-left" data-aos-duration="1000">
+            <p class="heading">Recommendations</p>
+            <div class="prediction-paragraph">{% if predicted_label == 1 %}
+                <p>Level 1: You have a low risk of developing obesity. Your lifestyle and dietary habits appear to be contributing positively to your overall health. Continue with your current regime, keeping a balance of nutrition, physical activity, and healthy habits like staying hydrated and getting enough sleep.<br><br>
+                    ● Maintain a balanced diet rich in fruits, vegetables, whole grains, and lean proteins.<br>
+                    ● Regularly engage in physical activity that you enjoy.<br>
+                    ● Stay hydrated and ensure you're getting enough sleep.<br>
+                    ● Regularly monitor your weight and body measurements to catch any changes early.<br><br>
+                    Remember, every individual is different, and your needs may vary. Always consult a healthcare professional for personalized advice.<br>
+                    </p>
+                {% elif predicted_label == 2 %}
+                <p>Level 2: Your risk of developing obesity is slightly higher than level 1. You're generally doing well, but there are a few areas you could improve. Consider increasing your vegetable intake and keeping a closer eye on your caloric intake. Regular exercise, sufficient sleep, and drinking plenty of water are crucial too.<br><br>
+                    ● Increase vegetable intake, aiming for 5 servings per day.<br>
+                    ● Keep an eye on caloric intake. Use a nutrition tracking app if needed.<br>
+                    ● Incorporate additional physical activities into your routine.<br>
+                    ● Consider implementing stress management techniques like meditation or yoga.<br><br>
+                    Remember, every individual is different, and your needs may vary. Always consult a healthcare professional for personalized advice.<br>
+                    </p>
+                {% elif predicted_label == 3 %}
+                <p>Level 3: You're at a moderate-low risk level for obesity. Review your daily habits to identify areas for improvement. Increasing physical activity, incorporating more fruits and vegetables into your diet, and reducing snacking between meals could be beneficial. If you smoke or consume alcohol regularly, consider cutting back.<br><br>
+                    ● Limit snacking between meals. If you must snack, choose healthier options like fruit or nuts.<br>
+                    ● Increase physical activity. Try to get at least 30 minutes of moderate exercise daily.<br>
+                    ● Consider cutting back on alcohol and smoking.<br>
+                    ● Make an effort to increase your water intake to stay hydrated.<br><br>
+                    Remember, every individual is different, and your needs may vary. Always consult a healthcare professional for personalized advice.<br>
+                    </p>
+                {% elif predicted_label == 4 %}
+                <p>Level 4: You're at moderate risk for obesity. You should make changes to your lifestyle. Increase your physical activity, control your portion sizes, and make healthier food choices, especially reducing high-calorie and high-sugar foods. Regularly monitor your weight. If you use technology frequently or engage in sedentary behaviors, try to break up sitting time with short bouts of exercise.<br><br>
+                    ● Pay attention to portion sizes to avoid overeating.<br>
+                    ● Consider limiting your intake of high-calorie and high-sugar foods.<br>
+                    ● Break up long periods of screen time with short exercises.<br>
+                    ● Begin monitoring your weight regularly, if not doing so already.<br><br>
+                    Remember, every individual is different, and your needs may vary. Always consult a healthcare professional for personalized advice.<br>
+                    </p>
+                {% elif predicted_label == 5 %}
+                <p>Level 5: You're at moderate-high risk for obesity. Making lifestyle changes should be a priority. Try to engage in physical activities most days of the week, cut back on alcohol, and reduce screen time. Consider seeing a dietitian for a personalized meal plan that will help you reduce caloric intake and increase nutrient-rich foods. Seek support to quit if you're a smoker.<br><br>
+                    ● Commit to regular physical exercise, such as a daily jog, cycling, or a fitness class.<br>
+                    ● Reach out to a dietitian to help you formulate a healthier meal plan.<br>
+                    ● Reduce alcohol consumption and consider joining a support group if you're struggling to quit smoking.<br>
+                    ● Implement a regular sleep schedule to ensure you're getting enough rest.<br><br>
+                    Remember, every individual is different, and your needs may vary. Always consult a healthcare professional for personalized advice.<br>
+                    </p>
+                {% elif predicted_label == 6 %}
+                <p>Level 6: You're at high risk for obesity. Immediate action is needed to reduce this risk. Regular physical activity and a balanced diet are essential. Reduce your consumption of processed foods and sugars, and increase your intake of whole grains, fruits, vegetables, and lean proteins. Consider working with a healthcare provider or a dietitian to develop a personalized plan. Also, seek professional help if you're struggling with quitting smoking or reducing alcohol.<br><br>
+                    ● Prioritize regular, intense physical activity such as weightlifting, running, or high-intensity interval training.<br>
+                    ● Drastically reduce your consumption of processed foods and sugars.<br>
+                    ● Consult with a healthcare provider for a comprehensive health check and personalized plan.<br>
+                    ● Seek professional support for issues such as smoking cessation or alcohol reduction.<br><br>
+                    Remember, every individual is different, and your needs may vary. Always consult a healthcare professional for personalized advice.<br>
+                    </p>
+                {% elif predicted_label == 7 %}
+                <p>Level 7: You're at a very high risk for obesity. It's crucial to address this risk as it can lead to other health issues like diabetes, heart disease, and certain cancers. Seek professional medical advice. Work closely with healthcare providers, dietitians, and potentially therapists or support groups to develop a comprehensive plan that addresses diet, physical activity, behavior changes, and possibly medication or surgery.<br><br>
+                    ● Engage with a healthcare provider to conduct a thorough health assessment and develop a detailed action plan.<br>
+                    ● Collaborate with dietitians or nutritionists for personalized meal plans, and consider seeing a therapist for emotional or behavioral support.<br>
+                    ● Join a support group for people struggling with similar issues. It can help to share your experiences and learn from others.<br>
+                    ● Consider medication or surgery under professional guidance if lifestyle modifications alone are insufficient.<br><br>
+                    Remember, every individual is different, and your needs may vary. Always consult a healthcare professional for personalized advice.<br>
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        document.getElementById('dashboardButton').addEventListener('click', function() {
+            window.location.href = '/dashboard';
+        });
+    </script>
+    <script>
+        document.getElementById('dashboardButton').addEventListener('click', function() {
+            // Get the predicted label and name values
+            var predictedLabel = "{{ predicted_label }}";
+            var name = "{{ name }}";
+    
+            // Construct the URL with query parameters
+            var url = "/dashboard?predicted_label=" + encodeURIComponent(predictedLabel) + "&name=" + encodeURIComponent(name);
+    
+            // Redirect to the dashboard page
+            window.location.href = url;
+        });
+    </script>
+    
+</body>
+</html>
