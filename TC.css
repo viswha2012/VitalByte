@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+body{
+    background-color: antiquewhite;
+}
+.term-box{
+    max-width: 600px;
+    background-color: rgba(83, 84, 84,0.1);
+    padding: 0 20px;
+    height: 600px;
+    overflow-y: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.term-box::-webkit-scrollbar{
+    width: 5px;
+    background-color: #282828;
+}
+.term-box::-webkit-scrollbar-thumb{
+    background-color: #f1f1f1;
+}
+h2{
+    text-transform: uppercase;
+}
