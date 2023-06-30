@@ -1,7 +1,7 @@
 gunicorn
 flask
 flask_sqlalchemy
-wheela
+wheel
 mysqlclient
 flask_login
 numpy
