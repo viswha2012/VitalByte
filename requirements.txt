@@ -1,6 +1,7 @@
 gunicorn
 flask
 flask_sqlalchemy
+mysqlclient
 flask_login
 numpy
 tensorflow 
